@@ -1,0 +1,42 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUserPreferenceLabel">Create or edit a User And Preference</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!userPreference.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="userPreference.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_numCompteExterne">Num Compte Externe</label>
+            <input type="text" class="form-control" name="numCompteExterne" id="field_numCompteExterne"
+                [(ngModel)]="userPreference.numCompteExterne" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_avatarPref">Avatar Pref</label>
+            <select class="form-control" name="avatarPref" [(ngModel)]="userPreference.avatarPref" id="field_avatarPref" >
+                <option value="PREFERENCEAVATAR">PREFERENCEAVATAR</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_abonnePref">Abonne Pref</label>
+            <select class="form-control" name="abonnePref" [(ngModel)]="userPreference.abonnePref" id="field_abonnePref" >
+                <option value="PREFERENCEABONNEMENT">PREFERENCEABONNEMENT</option>
+            </select>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

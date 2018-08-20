@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userPreference",
+            "otherEntityName": "userPreference",
+            "otherEntityField": "numCompteExterne"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "etatDAvance",
+            "fieldType": "EtatDAvancement",
+            "fieldValues": "ENVOYEE,EN_COURS,EN_ATTENTE,FINALISEE,PROBLEM"
+        },
+        {
+            "fieldName": "typeDemande",
+            "fieldType": "TypeDeDemande",
+            "fieldValues": "ADHESION_STATUT,SOUSCRIPTION_ACCRE,EIRL,MODIFICATION_ACTIVITE,CESSATION_ACTIVITE,DELAI_PAIEMENT,FORMATION"
+        }
+    ],
+    "changelogDate": "20180813093233",
+    "entityTableName": "demande",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}

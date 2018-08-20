@@ -1,0 +1,36 @@
+
+<div *ngIf="demande">
+    <h2><span>Demande</span> {{demande.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Etat D Avance</span></dt>
+        <dd>
+            <span>{{demande.etatDAvance}}</span>
+        </dd>
+        <dt><span>Type Demande</span></dt>
+        <dd>
+            <span>{{demande.typeDemande}}</span>
+        </dd>
+        <dt><span>User And Preference</span></dt>
+        <dd>
+            <div *ngIf="demande.userPreferenceId">
+                <a [routerLink]="['/user-and-preference-webae', demande.userPreferenceId]">{{demande.numCompteExterne}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'demande-webae/'+ demande.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

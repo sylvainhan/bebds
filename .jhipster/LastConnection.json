@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userPreference",
+            "otherEntityName": "userPreference",
+            "otherEntityField": "numCompteExterne"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "actuelConnection",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastConnection",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "typeDeveice",
+            "fieldType": "TypeDevice",
+            "fieldValues": "IOS,ANDROID,WEB"
+        }
+    ],
+    "changelogDate": "20180813093231",
+    "entityTableName": "last_connection",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}

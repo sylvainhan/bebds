@@ -1,0 +1,11 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [],
+    "changelogDate": "20180813112701",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "taux",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

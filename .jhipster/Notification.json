@@ -1,0 +1,41 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userPreference",
+            "otherEntityName": "userPreference",
+            "otherEntityField": "numCompteExterne"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "estLu",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "TypeDeNotif",
+            "fieldValues": "BIENVENUE,ADHESION,ECHEANCE,MESSAGE,CONSEILS,ACTUALITES,DOCUMENT,DEMARCHE,NOTIF_ACCRE,ALERT_ACCRE"
+        },
+        {
+            "fieldName": "customSujet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customContenu",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customUrl",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180813093232",
+    "entityTableName": "notification",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}

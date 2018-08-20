@@ -1,0 +1,67 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myNotificationLabel">Create or edit a Notification</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!notification.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="notification.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_estLu">Est Lu</label>
+            <input type="checkbox" class="form-control" name="estLu" id="field_estLu"
+                [(ngModel)]="notification.estLu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type">Type</label>
+            <select class="form-control" name="type" [(ngModel)]="notification.type" id="field_type" >
+                <option value="BIENVENUE">BIENVENUE</option>
+                <option value="ADHESION">ADHESION</option>
+                <option value="ECHEANCE">ECHEANCE</option>
+                <option value="MESSAGE">MESSAGE</option>
+                <option value="CONSEILS">CONSEILS</option>
+                <option value="ACTUALITES">ACTUALITES</option>
+                <option value="DOCUMENT">DOCUMENT</option>
+                <option value="DEMARCHE">DEMARCHE</option>
+                <option value="NOTIF_ACCRE">NOTIF_ACCRE</option>
+                <option value="ALERT_ACCRE">ALERT_ACCRE</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_customSujet">Custom Sujet</label>
+            <input type="text" class="form-control" name="customSujet" id="field_customSujet"
+                [(ngModel)]="notification.customSujet" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_customContenu">Custom Contenu</label>
+            <input type="text" class="form-control" name="customContenu" id="field_customContenu"
+                [(ngModel)]="notification.customContenu" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_customUrl">Custom Url</label>
+            <input type="text" class="form-control" name="customUrl" id="field_customUrl"
+                [(ngModel)]="notification.customUrl" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" for="field_userPreference">User And Preference</label>
+            <select class="form-control" id="field_userPreference" name="userPreference" [(ngModel)]="notification.userPreferenceId" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userPreferenceOption.id" *ngFor="let userPreferenceOption of userandpreferences; trackBy: trackUserPreferenceById">{{userPreferenceOption.numCompteExterne}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

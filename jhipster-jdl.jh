@@ -1,0 +1,108 @@
+
+entity UserDevice {
+    deviceToken String,
+    typeDevice TypeDevice
+}
+
+entity LastConnection {
+    actuelConnection ZonedDateTime,
+    lastConnection ZonedDateTime,
+    typeDeveice TypeDevice
+}
+
+entity Notification {
+  estLu Boolean,
+  type TypeDeNotif,
+  customSujet String,
+  customContenu String,
+  customUrl String
+}
+
+entity Demande{
+  etatDAvance EtatDAvancement,
+  typeDemande TypeDeDemande
+}
+
+// ----- Enums -----
+enum TypeDeNotif{
+  BIENVENUE,
+  ADHESION,
+  ECHEANCE,
+  MESSAGE,
+  CONSEILS,
+  ACTUALITES,
+  DOCUMENT,
+  DEMARCHE,
+  NOTIF_ACCRE,
+  ALERT_ACCRE
+}
+enum EtatDAvancement{
+	ENVOYEE,
+	EN_COURS,
+	EN_ATTENTE,
+	FINALISEE,
+	PROBLEM
+}
+
+enum TypeDeDemande {
+	ADHESION_STATUT,
+	SOUSCRIPTION_ACCRE,
+  	EIRL,
+	MODIFICATION_ACTIVITE,
+    CESSATION_ACTIVITE,
+    DELAI_PAIEMENT,
+    FORMATION
+}
+
+enum NotifChannel {
+    SMS, EMAIL, NOTIF_PHONE, NOTIF_TABLET
+}
+
+enum NotifMoment {
+	// B(efore) -> Avant, A(fter) -> Après
+    // 3 -> 3 Jours
+    // OUV -> Ouverture, FER -> Fermeture
+    // DECL -> Declaratiion
+	B3_OUV_DECL,
+    B3_FER_DECL
+}
+
+entity PreferenceNotif {
+	active Boolean,
+    channel NotifChannel,
+    moment NotifMoment
+}
+
+enum PreferenceAvatar {
+	PREFERENCEAVATAR
+}
+enum PreferenceAbonnement {
+	PREFERENCEABONNEMENT
+}
+enum TypeDevice {
+	IOS, ANDROID, WEB
+}
+
+entity UserPreference {
+	numCompteExterne String,
+    avatarPref PreferenceAvatar,
+    abonnePref PreferenceAbonnement
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	UserPreference{userDevice} to UserDevice{userPreference(numCompteExterne)},
+    UserPreference{lastConnection} to LastConnection{userPreference(numCompteExterne)},
+    UserPreference{demande} to Demande{userPreference(numCompteExterne)},
+    UserPreference{notification} to Notification{userPreference(numCompteExterne)},
+    UserPreference{preferenceNotif} to PreferenceNotif{userPreference(numCompteExterne)}
+}
+
+
+dto * with mapstruct except NotifiChannel, NotifMoment, TypeDevice, PreferenceAvatar, PreferenceAbonnement
+
+// Set service options to all except few
+service all with serviceImpl except NotifiChannel, NotifMoment, TypeDevice, PreferenceAvatar, PreferenceAbonnement
+// Set an angular suffix
+angularSuffix * with webae

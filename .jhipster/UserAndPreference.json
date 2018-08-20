@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "userDevice",
+            "otherEntityName": "userDevice",
+            "otherEntityRelationshipName": "userPreference"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "lastConnection",
+            "otherEntityName": "lastConnection",
+            "otherEntityRelationshipName": "userPreference"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "demande",
+            "otherEntityName": "demande",
+            "otherEntityRelationshipName": "userPreference"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "notification",
+            "otherEntityName": "notification",
+            "otherEntityRelationshipName": "userPreference"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "preferenceNotif",
+            "otherEntityName": "preferenceNotif",
+            "otherEntityRelationshipName": "userPreference"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "numCompteExterne",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "avatarPref",
+            "fieldType": "PreferenceAvatar",
+            "fieldValues": "PREFERENCEAVATAR"
+        },
+        {
+            "fieldName": "abonnePref",
+            "fieldType": "PreferenceAbonnement",
+            "fieldValues": "PREFERENCEABONNEMENT"
+        }
+    ],
+    "changelogDate": "20180813093235",
+    "entityTableName": "user_and_preference",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}

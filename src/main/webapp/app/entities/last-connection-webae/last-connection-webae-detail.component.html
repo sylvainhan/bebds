@@ -1,0 +1,40 @@
+
+<div *ngIf="lastConnection">
+    <h2><span>Last Connection</span> {{lastConnection.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Actuel Connection</span></dt>
+        <dd>
+            <span>{{lastConnection.actuelConnection | date:'medium'}}</span>
+        </dd>
+        <dt><span>Last Connection</span></dt>
+        <dd>
+            <span>{{lastConnection.lastConnection | date:'medium'}}</span>
+        </dd>
+        <dt><span>Type Deveice</span></dt>
+        <dd>
+            <span>{{lastConnection.typeDeveice}}</span>
+        </dd>
+        <dt><span>User And Preference</span></dt>
+        <dd>
+            <div *ngIf="lastConnection.userPreferenceId">
+                <a [routerLink]="['/user-and-preference-webae', lastConnection.userPreferenceId]">{{lastConnection.numCompteExterne}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'last-connection-webae/'+ lastConnection.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

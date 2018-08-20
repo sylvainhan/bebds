@@ -1,0 +1,40 @@
+
+<div *ngIf="preferenceNotif">
+    <h2><span>Preference Notif</span> {{preferenceNotif.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Active</span></dt>
+        <dd>
+            <span>{{preferenceNotif.active}}</span>
+        </dd>
+        <dt><span>Channel</span></dt>
+        <dd>
+            <span>{{preferenceNotif.channel}}</span>
+        </dd>
+        <dt><span>Moment</span></dt>
+        <dd>
+            <span>{{preferenceNotif.moment}}</span>
+        </dd>
+        <dt><span>User And Preference</span></dt>
+        <dd>
+            <div *ngIf="preferenceNotif.userPreferenceId">
+                <a [routerLink]="['/user-and-preference-webae', preferenceNotif.userPreferenceId]">{{preferenceNotif.numCompteExterne}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'preference-notif-webae/'+ preferenceNotif.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

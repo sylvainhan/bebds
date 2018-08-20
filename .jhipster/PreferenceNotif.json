@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userPreference",
+            "otherEntityName": "userPreference",
+            "otherEntityField": "numCompteExterne"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "active",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "channel",
+            "fieldType": "NotifChannel",
+            "fieldValues": "SMS,EMAIL,NOTIF_PHONE,NOTIF_TABLET"
+        },
+        {
+            "fieldName": "moment",
+            "fieldType": "NotifMoment",
+            "fieldValues": "B3_OUV_DECL,B3_FER_DECL"
+        }
+    ],
+    "changelogDate": "20180813093234",
+    "entityTableName": "preference_notif",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}

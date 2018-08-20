@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.acoss.webae"
+    },
+    "jhipsterVersion": "4.14.3",
+    "baseName": "webae",
+    "packageName": "com.acoss.webae",
+    "packageFolder": "com/acoss/webae",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "maven",
+    "enableSocialSignIn": false,
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "757ccff2bf5aaae203b4f830ad6236b1b5e4414b",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "enableTranslation": false
+  }
+}

@@ -1,0 +1,57 @@
+Index: target/generated-sources/annotations/com/acoss/webae/domain/PreferenceNotif_.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/generated-sources/annotations/com/acoss/webae/domain/PreferenceNotif_.java	(date 1534250867936)
++++ target/generated-sources/annotations/com/acoss/webae/domain/PreferenceNotif_.java	(date 1534250867936)
+@@ -12,6 +12,7 @@
+
+ 	public static volatile SingularAttribute<PreferenceNotif, NotifChannel> channel;
+ 	public static volatile SingularAttribute<PreferenceNotif, Boolean> active;
++	public static volatile SingularAttribute<PreferenceNotif, String> numCompteExterne;
+ 	public static volatile SingularAttribute<PreferenceNotif, Long> id;
+ 	public static volatile SingularAttribute<PreferenceNotif, UserPreference> userPreference;
+ 	public static volatile SingularAttribute<PreferenceNotif, NotifMoment> moment;
+Index: target/generated-sources/annotations/com/acoss/webae/service/mapper/PreferenceNotifMapperImpl.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/generated-sources/annotations/com/acoss/webae/service/mapper/PreferenceNotifMapperImpl.java	(date 1534250867901)
++++ target/generated-sources/annotations/com/acoss/webae/service/mapper/PreferenceNotifMapperImpl.java	(date 1534250867901)
+@@ -10,7 +10,7 @@
+
+ @Generated(
+     value = "org.mapstruct.ap.MappingProcessor",
+-    date = "2018-08-14T13:54:28+0200",
++    date = "2018-08-14T14:47:47+0200",
+     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_161 (Oracle Corporation)"
+ )
+ @Component
+@@ -72,7 +72,7 @@
+
+         PreferenceNotif preferenceNotif = new PreferenceNotif();
+
+-        preferenceNotif.setUserPreference( preferenceNotifDTOToUserPreference( preferenceNotifDTO ) );
++        preferenceNotif.setNumCompteExterne( preferenceNotifDTO.getUserPreferenceNumCompteExterne() );
+         preferenceNotif.setId( preferenceNotifDTO.getId() );
+         preferenceNotif.setActive( preferenceNotifDTO.isActive() );
+         preferenceNotif.setChannel( preferenceNotifDTO.getChannel() );
+@@ -95,16 +95,4 @@
+         }
+         return numCompteExterne;
+     }
+-
+-    protected UserPreference preferenceNotifDTOToUserPreference(PreferenceNotifDTO preferenceNotifDTO) {
+-        if ( preferenceNotifDTO == null ) {
+-            return null;
+-        }
+-
+-        UserPreference userPreference = new UserPreference();
+-
+-        userPreference.setNumCompteExterne( preferenceNotifDTO.getUserPreferenceNumCompteExterne() );
+-
+-        return userPreference;
+-    }
+ }

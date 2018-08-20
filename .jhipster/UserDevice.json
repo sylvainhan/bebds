@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "userPreference",
+            "otherEntityName": "userPreference",
+            "otherEntityField": "numCompteExterne"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deviceToken",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "typeDevice",
+            "fieldType": "TypeDevice",
+            "fieldValues": "IOS,ANDROID,WEB"
+        }
+    ],
+    "changelogDate": "20180813093230",
+    "entityTableName": "user_device",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "webae"
+}
