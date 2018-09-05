@@ -34,7 +34,7 @@ public class LastConnection implements Serializable {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type_deveice")
-    private TypeDevice typeDeveice;
+    private TypeDevice typeDevice;
 
     @ManyToOne
     @JoinColumn(name="user_and_preference_id")
@@ -75,17 +75,17 @@ public class LastConnection implements Serializable {
         this.lastConnection = lastConnection;
     }
 
-    public TypeDevice getTypeDeveice() {
-        return typeDeveice;
+    public TypeDevice getTypeDevice() {
+        return typeDevice;
     }
 
     public LastConnection typeDeveice(TypeDevice typeDeveice) {
-        this.typeDeveice = typeDeveice;
+        this.typeDevice = typeDeveice;
         return this;
     }
 
-    public void setTypeDeveice(TypeDevice typeDeveice) {
-        this.typeDeveice = typeDeveice;
+    public void setTypeDevice(TypeDevice typeDevice) {
+        this.typeDevice = typeDevice;
     }
 
     public UserPreference getUserPreference() {
@@ -128,7 +128,7 @@ public class LastConnection implements Serializable {
             "id=" + getId() +
             ", actuelConnection='" + getActuelConnection() + "'" +
             ", lastConnection='" + getLastConnection() + "'" +
-            ", typeDeveice='" + getTypeDeveice() + "'" +
+            ", typeDevice='" + getTypeDevice() + "'" +
             "}";
     }
 }

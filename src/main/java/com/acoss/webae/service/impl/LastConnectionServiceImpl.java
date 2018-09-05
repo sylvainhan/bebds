@@ -1,10 +1,13 @@
 package com.acoss.webae.service.impl;
 
+import com.acoss.webae.domain.UserPreference;
+import com.acoss.webae.repository.UserPreferenceRepository;
 import com.acoss.webae.service.LastConnectionService;
 import com.acoss.webae.domain.LastConnection;
 import com.acoss.webae.repository.LastConnectionRepository;
 import com.acoss.webae.service.dto.LastConnectionDTO;
 import com.acoss.webae.service.mapper.LastConnectionMapper;
+import com.acoss.webae.service.util.MockUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -27,9 +30,12 @@ public class LastConnectionServiceImpl implements LastConnectionService {
 
     private final LastConnectionMapper lastConnectionMapper;
 
-    public LastConnectionServiceImpl(LastConnectionRepository lastConnectionRepository, LastConnectionMapper lastConnectionMapper) {
+    private final UserPreferenceRepository userPreferenceRepository;
+
+    public LastConnectionServiceImpl(LastConnectionRepository lastConnectionRepository, LastConnectionMapper lastConnectionMapper, UserPreferenceRepository userPreferenceRepository) {
         this.lastConnectionRepository = lastConnectionRepository;
         this.lastConnectionMapper = lastConnectionMapper;
+        this.userPreferenceRepository = userPreferenceRepository;
     }
 
     /**
@@ -83,5 +89,32 @@ public class LastConnectionServiceImpl implements LastConnectionService {
     public void delete(Long id) {
         log.debug("Request to delete LastConnection : {}", id);
         lastConnectionRepository.delete(id);
+    }
+
+    @Override
+    public LastConnectionDTO findOneByNumCptExt(String numCompteExt) {
+        UserPreference uapd = userPreferenceRepository.findOneByNumCompteExterne(MockUtil.NUM_COMPTE_EXT);
+        if (uapd != null) {
+            return lastConnectionMapper.toDto(lastConnectionRepository.findOneByUserPreferenceId(uapd.getId()));
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Save a lastConnection.
+     *
+     * @param lastConnectionDTO the entity to save
+     * @return the persisted entity
+     */
+    @Override
+    public LastConnectionDTO saveForCurrentUser(LastConnectionDTO lastConnectionDTO) {
+        UserPreference uapd = userPreferenceRepository.findOneByNumCompteExterne(MockUtil.NUM_COMPTE_EXT);
+        lastConnectionDTO.setUserPreferenceId(uapd.getId());
+
+        log.debug("Request to save LastConnection : {}", lastConnectionDTO);
+        LastConnection lastConnection = lastConnectionMapper.toEntity(lastConnectionDTO);
+        lastConnection = lastConnectionRepository.save(lastConnection);
+        return lastConnectionMapper.toDto(lastConnection);
     }
 }

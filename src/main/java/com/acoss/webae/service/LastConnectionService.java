@@ -37,4 +37,8 @@ public interface LastConnectionService {
      * @param id the id of the entity
      */
     void delete(Long id);
+
+    LastConnectionDTO findOneByNumCptExt(String numCompteExt);
+
+    LastConnectionDTO saveForCurrentUser(LastConnectionDTO lastConnectionDTO);
 }

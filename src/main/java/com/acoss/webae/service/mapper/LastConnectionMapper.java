@@ -12,7 +12,7 @@ import org.mapstruct.*;
 public interface LastConnectionMapper extends EntityMapper<LastConnectionDTO, LastConnection> {
 
     @Mapping(source = "userPreference.id", target = "userPreferenceId")
-    @Mapping(source = "userPreference.numCompteExterne", target = "userPreferenceNumCompteExterne")
+    @Mapping(source = "userPreference.numCompteExterne", target = "numCompteExterne")
     LastConnectionDTO toDto(LastConnection lastConnection);
 
     @Mapping(source = "userPreferenceId", target = "userPreference")

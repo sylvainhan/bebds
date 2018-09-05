@@ -7,7 +7,7 @@ entity UserDevice {
 entity LastConnection {
     actuelConnection ZonedDateTime,
     lastConnection ZonedDateTime,
-    typeDeveice TypeDevice
+    typeDevice TypeDevice
 }
 
 entity Notification {

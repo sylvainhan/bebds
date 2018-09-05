@@ -53,7 +53,7 @@ public class PreferenceNotifServiceImpl implements PreferenceNotifService {
         log.debug("Request to save PreferenceNotif : {}", preferenceNotifDTO);
         PreferenceNotif preferenceNotif = preferenceNotifMapper.toEntity(preferenceNotifDTO);
         preferenceNotif.setUserPreference(uapd);
-        
+
         preferenceNotif = preferenceNotifRepository.save(preferenceNotif);
         return preferenceNotifMapper.toDto(preferenceNotif);
     }
@@ -101,6 +101,8 @@ public class PreferenceNotifServiceImpl implements PreferenceNotifService {
     public void deleteByChannelAndType(NotifChannel channel, NotifMoment type) {
         UserPreference uapd = userPreferenceRepository.findOneByNumCompteExterne(MockUtil.NUM_COMPTE_EXT);
 
-        preferenceNotifRepository.deleteByUserPreferenceIdAndChannelAndMoment(uapd.getId(), channel, type);
+        if (uapd != null) {
+            preferenceNotifRepository.deleteByUserPreferenceIdAndChannelAndMoment(uapd.getId(), channel, type);
+        }
     }
 }

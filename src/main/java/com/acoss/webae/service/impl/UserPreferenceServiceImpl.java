@@ -43,9 +43,7 @@ public class UserPreferenceServiceImpl implements UserPreferenceService {
     public UserPreferenceDTO save(UserPreferenceDTO userPreferenceDTO) {
         log.debug("Request to save UserPreference : {}", userPreferenceDTO);
         UserPreference userPreference = userPreferenceMapper.toEntity(userPreferenceDTO);
-//        for(PreferenceNotif pNotif: userPreference.getPreferenceNotifs()){
-//            pNotif.setUserPreference();
-//        }
+
         userPreference = userPreferenceRepository.save(userPreference);
         return userPreferenceMapper.toDto(userPreference);
     }

@@ -129,7 +129,7 @@ public class PreferenceNotifResource {
     // ------------------- Custom Methods ---------------------
 
     /**
-     * POST  /preference-notifs : Create a new preferenceNotif.
+     * PATCH /preference-notifs : update a preferenceNotif.
      *
      * @param preferenceNotifDTO the preferenceNotifDTO to create
      * @return the ResponseEntity with status 201 (Created) and with body the new preferenceNotifDTO, or with status 400 (Bad Request) if the preferenceNotif has already an ID

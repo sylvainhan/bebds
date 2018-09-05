@@ -1,6 +1,7 @@
 package com.acoss.webae.repository;
 
 import com.acoss.webae.domain.LastConnection;
+import com.acoss.webae.service.dto.LastConnectionDTO;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.data.jpa.repository.*;
@@ -12,5 +13,6 @@ import org.springframework.data.jpa.repository.*;
 @SuppressWarnings("unused")
 @Repository
 public interface LastConnectionRepository extends JpaRepository<LastConnection, Long> {
+    LastConnection findOneByUserPreferenceId(Long id);
 
 }

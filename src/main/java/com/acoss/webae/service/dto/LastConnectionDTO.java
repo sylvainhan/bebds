@@ -3,8 +3,6 @@ package com.acoss.webae.service.dto;
 
 import java.time.ZonedDateTime;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 import com.acoss.webae.domain.enumeration.TypeDevice;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +19,13 @@ public class LastConnectionDTO implements Serializable {
 
     private ZonedDateTime lastConnection;
 
-    private TypeDevice typeDeveice;
+    private TypeDevice typeDevice;
 
     private Long userPreferenceId;
 
-    private String userPreferenceNumCompteExterne;
+    private String numCompteExterne;
 
+    @JsonIgnore
     public Long getId() {
         return id;
     }
@@ -35,6 +34,7 @@ public class LastConnectionDTO implements Serializable {
         this.id = id;
     }
 
+    @JsonIgnore
     public ZonedDateTime getActuelConnection() {
         return actuelConnection;
     }
@@ -51,12 +51,13 @@ public class LastConnectionDTO implements Serializable {
         this.lastConnection = lastConnection;
     }
 
-    public TypeDevice getTypeDeveice() {
-        return typeDeveice;
+    @JsonIgnore
+    public TypeDevice getTypeDevice() {
+        return typeDevice;
     }
 
-    public void setTypeDeveice(TypeDevice typeDeveice) {
-        this.typeDeveice = typeDeveice;
+    public void setTypeDevice(TypeDevice typeDevice) {
+        this.typeDevice = typeDevice;
     }
 
     @JsonIgnore
@@ -69,12 +70,13 @@ public class LastConnectionDTO implements Serializable {
         this.userPreferenceId = userPreferenceId;
     }
 
-    public String getUserPreferenceNumCompteExterne() {
-        return userPreferenceNumCompteExterne;
+    @JsonIgnore
+    public String getNumCompteExterne() {
+        return numCompteExterne;
     }
 
-    public void setUserPreferenceNumCompteExterne(String userPreferenceNumCompteExterne) {
-        this.userPreferenceNumCompteExterne = userPreferenceNumCompteExterne;
+    public void setNumCompteExterne(String numCompteExterne) {
+        this.numCompteExterne = numCompteExterne;
     }
 
     @Override
@@ -104,7 +106,7 @@ public class LastConnectionDTO implements Serializable {
             "id=" + getId() +
             ", actuelConnection='" + getActuelConnection() + "'" +
             ", lastConnection='" + getLastConnection() + "'" +
-            ", typeDeveice='" + getTypeDeveice() + "'" +
+            ", typeDevice='" + getTypeDevice() + "'" +
             "}";
     }
 }

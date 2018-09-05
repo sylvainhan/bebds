@@ -129,7 +129,7 @@ public class LastConnectionResourceIntTest {
         LastConnection testLastConnection = lastConnectionList.get(lastConnectionList.size() - 1);
         assertThat(testLastConnection.getActuelConnection()).isEqualTo(DEFAULT_ACTUEL_CONNECTION);
         assertThat(testLastConnection.getLastConnection()).isEqualTo(DEFAULT_LAST_CONNECTION);
-        assertThat(testLastConnection.getTypeDeveice()).isEqualTo(DEFAULT_TYPE_DEVEICE);
+        assertThat(testLastConnection.getTypeDevice()).isEqualTo(DEFAULT_TYPE_DEVEICE);
     }
 
     @Test
@@ -220,7 +220,7 @@ public class LastConnectionResourceIntTest {
         LastConnection testLastConnection = lastConnectionList.get(lastConnectionList.size() - 1);
         assertThat(testLastConnection.getActuelConnection()).isEqualTo(UPDATED_ACTUEL_CONNECTION);
         assertThat(testLastConnection.getLastConnection()).isEqualTo(UPDATED_LAST_CONNECTION);
-        assertThat(testLastConnection.getTypeDeveice()).isEqualTo(UPDATED_TYPE_DEVEICE);
+        assertThat(testLastConnection.getTypeDevice()).isEqualTo(UPDATED_TYPE_DEVEICE);
     }
 
     @Test

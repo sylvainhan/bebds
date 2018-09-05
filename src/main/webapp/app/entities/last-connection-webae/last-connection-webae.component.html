@@ -29,7 +29,7 @@
                 <td><a [routerLink]="['../last-connection-webae', lastConnection.id ]">{{lastConnection.id}}</a></td>
                 <td>{{lastConnection.actuelConnection | date:'medium'}}</td>
                 <td>{{lastConnection.lastConnection | date:'medium'}}</td>
-                <td>{{lastConnection.typeDeveice}}</td>
+                <td>{{lastConnection.typeDevice}}</td>
                 <td>
                     <div *ngIf="lastConnection.userPreferenceId">
                         <a [routerLink]="['../user-and-preference-webae', lastConnection.userPreferenceId  ]" >{{lastConnection.numCompteExterne}}</a>
